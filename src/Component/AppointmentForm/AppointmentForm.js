@@ -1,7 +1,8 @@
 import React from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
 const AppointmentForm = () => {
-  
+
   const formHandler = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -25,13 +26,10 @@ const AppointmentForm = () => {
       body: JSON.stringify(appointments)
     }).then(res => res.json())
       .then(data => {
-     
-        if (data.acknowledge) {
-         alert('Project added successfully')
-          form.reset()
-        }
+        toast.success('Appointment added successfully')
       })
       .catch(err => console.log(err));
+      e.target.reset();
   }
     return (
         <div >
@@ -92,13 +90,13 @@ const AppointmentForm = () => {
 </div>
 
   <div class="flex items-center justify-center">
-    <button class="bg-sky-400 hover:bg-green-400 text-white font-medium py-2 px-4 focus:outline-none focus:shadow-outline rounded-full  mt-5">
+    <button  type='submit' class="bg-sky-400 hover:bg-green-400 text-white font-medium py-2 px-4 focus:outline-none focus:shadow-outline rounded-full  mt-5">
     Make Appointment
     </button>
   </div>
     </form>
     </div>
-
+    <Toaster />
         </div>
       
     );
