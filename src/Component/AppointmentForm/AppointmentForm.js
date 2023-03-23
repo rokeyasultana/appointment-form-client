@@ -1,15 +1,9 @@
-import React, { useState } from 'react';
-import './AppointmentForm.css';
-
-
+import React from 'react';
 
 const AppointmentForm = () => {
-  
-  
   const formHandler = (e) => {
     e.preventDefault();
     const form = e.target;
-
     const name= form.name.value;
     const email = form.email.value;
     const phone = form.phone.value;
@@ -18,7 +12,7 @@ const AppointmentForm = () => {
     const appointments = {
      name,email,phone,date
     }
-    console.log(appointments);
+   
 
     const url = 'https://appointment-form.vercel.app/appointment'
 
@@ -31,7 +25,7 @@ const AppointmentForm = () => {
       body: JSON.stringify(appointments)
     }).then(res => res.json())
       .then(data => {
-        console.log(data)
+     
         if (data.acknowledge) {
          alert('Project added successfully')
           form.reset()
@@ -41,11 +35,10 @@ const AppointmentForm = () => {
   }
     return (
         <div >
-          <h2 className="text-2xl text-sky-500 font-bold ml-9 p-5 ">Appointment Form</h2>
- <div className=" mt-8 mx-auto bg-sky-100 shadow-lg rounded-lg py-8 px-6 w-9/12">
+          <h2 className="text-2xl text-sky-500 font-bold ml-9 p-5 mt-10 ">Appointment Form</h2>
+ <div className=" mt-8 mx-auto bg-sky-100 shadow-lg rounded-lg py-8 px-6 w-6/12">
   
   <form  onSubmit={formHandler}>
-
 <div>
 
 <div class="mb-4">
