@@ -1,6 +1,7 @@
 import React from 'react';
 
 const AppointmentForm = () => {
+  
   const formHandler = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -12,10 +13,9 @@ const AppointmentForm = () => {
     const appointments = {
      name,email,phone,date
     }
-   
+  
 
     const url = 'https://appointment-form.vercel.app/appointment'
-
 
     fetch(url, {
       method: "POST",
@@ -36,11 +36,10 @@ const AppointmentForm = () => {
     return (
         <div >
           <h2 className="text-2xl text-sky-500 font-bold ml-9 p-5 mt-10 ">Appointment Form</h2>
- <div className=" mt-8 mx-auto bg-sky-100 shadow-lg rounded-lg py-8 px-6 w-6/12">
+ <div data-aos="zoom-in-up" data-aos-duration="1500"   className=" mt-8 mx-auto bg-sky-100 shadow-lg rounded-lg py-8 px-6 w-6/12">
   
   <form  onSubmit={formHandler}>
 <div>
-
 <div class="mb-4">
       <label class="block text-sky-500 font-bold mb-2" for="name">
        Name
@@ -93,7 +92,7 @@ const AppointmentForm = () => {
 </div>
 
   <div class="flex items-center justify-center">
-    <button class="bg-sky-400 hover:bg-green-400 text-white font-medium py-2 px-4 focus:outline-none focus:shadow-outline rounded-full ml-9 mt-5">
+    <button class="bg-sky-400 hover:bg-green-400 text-white font-medium py-2 px-4 focus:outline-none focus:shadow-outline rounded-full  mt-5">
     Make Appointment
     </button>
   </div>
